@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { fetchProducts } from '../../services/shelf/actions';
+import { fetchProducts } from '../../redux/shelf/actions';
 
 import Spinner from '../Spinner';
 import ShelfHeader from './ShelfHeader';

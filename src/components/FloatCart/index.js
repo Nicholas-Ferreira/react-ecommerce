@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { loadCart, removeProduct, changeProductQuantity } from '../../services/cart/actions';
-import { updateCart } from '../../services/total/actions';
+import { loadCart, removeProduct, changeProductQuantity } from '../../redux/cart/actions';
+import { updateCart } from '../../redux/total/actions';
 import CartProduct from './CartProduct';
-import { formatPrice } from '../../services/util';
+import { formatPrice } from '../../redux/util';
 
 import './style.scss';
 
