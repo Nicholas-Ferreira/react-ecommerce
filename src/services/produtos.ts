@@ -3,7 +3,7 @@ import { ApiMystyleProduct, Product } from "../interfaces/product.interface"
 import { BASE_URL, BUCKET_URL } from './api'
 
 export const getCatalog = async (): Promise<Array<Product>> => {
-  const { status, data } = await axios.get<Array<ApiMystyleProduct>>(`${BASE_URL}/products`)
+  const { status, data } = await axios.get<Array<ApiMystyleProduct>>(`${BASE_URL}/produto`)
   if (status != 200) {
     console.error(data)
     return []
