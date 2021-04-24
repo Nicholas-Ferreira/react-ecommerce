@@ -83,7 +83,9 @@ class FloatCart extends Component {
       currencyFormat,
       currencyId
     } = this.props.cartTotal;
+    const { cartProducts } = this.props
 
+    console.log(cartProducts)
     if (!productQuantity) {
       alert('Add some product in the cart!');
     } else {
