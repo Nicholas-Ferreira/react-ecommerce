@@ -1,26 +1,16 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { loadCart, removeProduct, changeProductQuantity } from '../../redux/cart/actions';
 import { updateCart } from '../../redux/total/actions';
 import CartProduct from './CartProduct';
 import { formatPrice } from '../../util';
+import { ProductCard } from '../../interfaces/product.interface';
 
 import './style.scss';
+import { IFloatCartActionProps, IFloatCartProps, IFloatCartState } from './interface';
 
-class FloatCart extends Component {
-  static propTypes = {
-    loadCart: PropTypes.func.isRequired,
-    updateCart: PropTypes.func.isRequired,
-    cartProducts: PropTypes.array.isRequired,
-    newProduct: PropTypes.object,
-    removeProduct: PropTypes.func,
-    productToRemove: PropTypes.object,
-    changeProductQuantity: PropTypes.func,
-    productToChange: PropTypes.object,
-  };
-
+class FloatCart extends Component<IFloatCartProps & IFloatCartActionProps> {
   state = {
     isOpen: false
   };
@@ -98,10 +88,11 @@ class FloatCart extends Component {
     }
   };
 
-  changeProductQuantity = changedProduct => {
+  changeProductQuantity = (changedProduct: ProductCard) => {
     const { cartProducts, updateCart } = this.props;
 
     const product = cartProducts.find(p => p.id === changedProduct.id);
+    if (!product) return
     product.quantity = changedProduct.quantity;
     if (product.quantity <= 0) {
       this.removeProduct(product);
@@ -176,12 +167,11 @@ class FloatCart extends Component {
               <small className="sub-price__installment">
                 {!!cartTotal.installments && (
                   <span>
-                    {`OR UP TO ${cartTotal.installments} x ${
-                      cartTotal.currencyFormat
-                    } ${formatPrice(
-                      cartTotal.totalPrice / cartTotal.installments,
-                      cartTotal.currencyId
-                    )}`}
+                    {`OR UP TO ${cartTotal.installments} x ${cartTotal.currencyFormat
+                      } ${formatPrice(
+                        cartTotal.totalPrice / cartTotal.installments,
+                        cartTotal.currencyId
+                      )}`}
                   </span>
                 )}
               </small>
@@ -196,7 +186,7 @@ class FloatCart extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: IFloatCartState): IFloatCartProps => ({
   cartProducts: state.cart.products,
   newProduct: state.cart.productToAdd,
   productToRemove: state.cart.productToRemove,

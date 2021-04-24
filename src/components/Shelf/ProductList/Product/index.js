@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Thumb from '../../../Thumb';
 import { formatPrice } from '../../../../util';
-import { addProduct } from '../../../../redux/cart/actions';
+import { addProduct } from '../../../../redux/cart/actions'
 
 const Product = ({ product, addProduct }) => {
   product.quantity = 1;

@@ -1,6 +1,7 @@
+import { ProductCard } from './../../interfaces/product.interface';
 import { UPDATE_CART } from './actionTypes';
 
-export const updateCart = cartProducts => dispatch => {
+export const updateCart = (cartProducts: Array<ProductCard>) => dispatch => {
   let productQuantity = cartProducts.reduce((sum, p) => {
     sum += p.quantity;
     return sum;
@@ -20,8 +21,8 @@ export const updateCart = cartProducts => dispatch => {
     productQuantity,
     installments,
     totalPrice,
-    currencyId: 'USD',
-    currencyFormat: '$'
+    currencyId: 'BRL',
+    currencyFormat: 'R$'
   };
 
   dispatch({
