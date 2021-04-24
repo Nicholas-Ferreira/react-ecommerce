@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { updateSort } from '../../../services/sort/actions';
+import { updateSort } from '../../../redux/sort/actions';
 import Selectbox from '../../Selectbox';
 
 const sortBy = [

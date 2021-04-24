@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { updateFilters } from '../../../services/filters/actions';
+import { updateFilters } from '../../../redux/filters/actions';
 import Checkbox from '../../Checkbox';
 import GithubStarButton from '../../github/StarButton';
 

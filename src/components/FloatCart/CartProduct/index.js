@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Thumb from './../../Thumb';
-import { formatPrice } from '../../../services/util';
+import { formatPrice } from '../../../redux/util';
 
 class CartProduct extends Component {
   static propTypes = {

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Thumb from '../../../Thumb';
-import { formatPrice } from '../../../../services/util';
-import { addProduct } from '../../../../services/cart/actions';
+import { formatPrice } from '../../../../redux/util';
+import { addProduct } from '../../../../redux/cart/actions';
 
 const Product = ({ product, addProduct }) => {
   product.quantity = 1;
