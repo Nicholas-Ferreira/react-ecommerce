@@ -22,12 +22,6 @@ npm start
 
 The MIT License (MIT). Please see License File for more information.
 
-<br/>
-<br/>
-
-<p align="center"><img src="http://www.jeffersonribeiro.com/assets/img/apple-icon-180x180.png" width="35" height="35"/></p>
-
-
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
