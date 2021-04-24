@@ -50,7 +50,7 @@ const Product = ({ product, addProduct }) => {
         </div>
         {productInstallment}
       </div>
-      <div className="shelf-item__buy-btn">Add to cart</div>
+      <div className="shelf-item__buy-btn">Comprar</div>
     </div>
   );
 };

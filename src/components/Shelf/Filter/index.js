@@ -36,7 +36,7 @@ const Filter = props => {
 
   return (
     <div className="filters">
-      <h4 className="title">Sizes:</h4>
+      <h4 className="title">Tamanho:</h4>
       {createCheckboxes()}
       <GithubStarButton />
     </div>
