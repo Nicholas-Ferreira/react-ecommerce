@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Thumb from './../../Thumb';
-import { formatPrice } from '../../../redux/util';
+import { formatPrice } from '../../../util';
 
 class CartProduct extends Component {
   static propTypes = {
@@ -61,7 +61,7 @@ class CartProduct extends Component {
         />
         <Thumb
           classes="shelf-item__thumb"
-          src={require(`../../../static/products/${product.sku}_2.jpg`)}
+          src={product.sku}
           alt={product.title}
         />
         <div className="shelf-item__details">

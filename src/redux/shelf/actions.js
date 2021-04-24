@@ -1,7 +1,5 @@
 import { FETCH_PRODUCTS } from './actionTypes';
-import axios from 'axios';
-
-import { productsAPI } from '../util';
+import { getCatalog } from '../../services/produtos';
 
 const compare = {
   lowestprice: (a, b) => {
@@ -17,10 +15,9 @@ const compare = {
 };
 
 export const fetchProducts = (filters, sortBy, callback) => dispatch => {
-  return axios
-    .get(productsAPI)
-    .then(res => {
-      let { products } = res.data;
+  return getCatalog()
+    .then(products => {
+      console.log(products)
 
       if (!!filters && filters.length > 0) {
         products = products.filter(p =>
@@ -42,6 +39,6 @@ export const fetchProducts = (filters, sortBy, callback) => dispatch => {
       });
     })
     .catch(err => {
-      console.log('Could not fetch products. Try again later.');
+      console.log('Could not fetch products. Try again later.', err);
     });
 };

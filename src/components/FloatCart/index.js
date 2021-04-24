@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { loadCart, removeProduct, changeProductQuantity } from '../../redux/cart/actions';
 import { updateCart } from '../../redux/total/actions';
 import CartProduct from './CartProduct';
-import { formatPrice } from '../../redux/util';
+import { formatPrice } from '../../util';
 
 import './style.scss';
 
