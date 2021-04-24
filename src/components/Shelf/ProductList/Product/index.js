@@ -18,7 +18,7 @@ const Product = ({ product, addProduct }) => {
 
     productInstallment = (
       <div className="installment">
-        <span>or {product.installments} x</span>
+        <span>ou {product.installments}x </span>
         <b>
           {product.currencyFormat}
           {formatPrice(installmentPrice, product.currencyId)}
