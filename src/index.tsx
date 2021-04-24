@@ -3,13 +3,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './pages/App';
-import Root from './Root';
+import Provider from './redux';
 
 import './index.scss';
 
 ReactDOM.render(
-  <Root>
+  <Provider>
     <App />
-  </Root>,
+  </Provider>,
   document.getElementById('root')
 );
