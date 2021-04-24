@@ -20,7 +20,7 @@ export const normalizeProduct = (data) => {
       "availableSizes": produto.tamanhos.map(t => t.nome),
       "style": produto.style,
       "price": +produto.preco,
-      "installments": produto.parcelado,
+      "installments": +produto.parcelado,
       "currencyId": "BRL",
       "currencyFormat": "R$",
       "isFreeShipping": produto.frete
