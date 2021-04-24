@@ -2,7 +2,6 @@ import React from 'react';
 
 import Shelf from '../../components/Shelf';
 import Filter from '../../components/Shelf/Filter';
-import GithubCorner from '../../components/github/Corner';
 import FloatCart from '../../components/FloatCart';
 
 const App = () => (
