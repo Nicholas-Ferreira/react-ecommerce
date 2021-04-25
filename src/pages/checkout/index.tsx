@@ -34,7 +34,7 @@ class Checkout extends Component<IFloatCartProps & IFloatCartActionProps> {
     return (
       <div className={'checkout-page'}>
         <div className="step-container">
-          <StepWizard nav={<Nav />} initialStep={3}>
+          <StepWizard nav={<Nav />}>
             <Credential />
             <Address />
             <CrediCard />
