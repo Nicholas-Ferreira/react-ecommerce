@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 
+import './style.scss'
+
 const currentYear = new Date().getFullYear();
 const monthsArr = Array.from({ length: 12 }, (x, i) => {
   const month = i + 1;
