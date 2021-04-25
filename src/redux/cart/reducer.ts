@@ -1,7 +1,7 @@
 import { ProductCard } from './../../interfaces/product.interface';
 import { LOAD_CART, ADD_PRODUCT, REMOVE_PRODUCT, CHANGE_PRODUCT_QUANTITY } from './actionTypes';
 
-export interface CartState {
+export interface ICartState {
   products: Array<ProductCard>
   productToAdd: ProductCard
   productToRemove: ProductCard

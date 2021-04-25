@@ -1,6 +1,6 @@
 import { ProductCard } from "../../interfaces/product.interface";
-import { CartState } from "../../redux/cart/reducer";
-import { TotalState } from "../../redux/total/reducer";
+import { ICartState } from "../../redux/cart/reducer";
+import { ITotalState } from "../../redux/total/reducer";
 
 export interface IFloatCartActionProps {
   loadCart: Function;
@@ -24,6 +24,6 @@ export interface IFloatCartProps {
 }
 
 export interface IFloatCartState { 
-  cart: CartState, 
-  total: TotalState 
+  cart: ICartState, 
+  total: ITotalState 
 }

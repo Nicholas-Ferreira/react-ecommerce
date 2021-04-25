@@ -1,6 +1,6 @@
 import { UPDATE_CART } from './actionTypes';
 
-export interface TotalState {
+export interface ITotalState {
   data: {
     productQuantity: number,
     installments: number,

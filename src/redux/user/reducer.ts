@@ -1,6 +1,6 @@
 import { LOGIN_USER, LOGOUT_USER } from './actionTypes';
 
-export interface UserState {
+export interface IUserState {
   email: string;
   token: string;
 }
