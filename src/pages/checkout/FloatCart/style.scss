@@ -4,7 +4,7 @@
   right: -450px;
   width: 450px;
   height: 100%;
-  background-color: #1b1a20;
+  background-color: #9188E5;
   box-sizing: border-box;
 
   transition: right 0.2s;
@@ -44,7 +44,7 @@
 
     &--float-cart-checkout-closed {
       position: absolute;
-      background-color: #000;
+      background-color: #9188E5;
       background-size: 50%;
       left: -60px;
       width: 60px;
@@ -67,7 +67,7 @@
       text-align: center;
       line-height: 18px;
       border-radius: 50%;
-      background-color: #eabf00;
+      background-color: #ffffff;
       position: absolute;
       bottom: -5px;
       right: 0px;
@@ -180,7 +180,7 @@
         }
       }
       &__price {
-        color: #eabf00;
+        color: #59C4CA;
         text-align: right;
         width: 25%;
       }
@@ -206,7 +206,7 @@
     width: 100%;
     height: 90px;
     z-index: 2;
-    background-color: #1b1a20;
+    background-color: #837AD9;
 
     &::before {
       content: '';
@@ -221,7 +221,7 @@
 
     .sub,
     .sub-price {
-      color: #5b5a5e;
+      color: #ffffff;
       vertical-align: middle;
       display: inline-block;
     }
@@ -240,7 +240,7 @@
       }
 
       &__val {
-        color: #eabf00;
+        color: #ffffff;
         font-size: 22px;
       }
     }

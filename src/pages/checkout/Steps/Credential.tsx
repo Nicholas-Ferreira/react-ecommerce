@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Form, Button } from 'react-bootstrap'
 
 function Credential(props) {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -11,12 +12,27 @@ function Credential(props) {
   console.log(errors);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" placeholder="Email" {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} />
-      <input type="text" placeholder="Senha" {...register("Senha", { required: true, maxLength: 100 })} />
+    <div className='checkout-form'>
+      <aside className='form'>
+        <form onSubmit={handleSubmit(onSubmit)}>
 
-      <input type="submit" />
-    </form>
+          <Form.Group>
+            <Form.Label>Email </Form.Label>
+            <Form.Control type="email" placeholder="Email" {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label>Senha</Form.Label>
+            <Form.Control type="password" placeholder="Senha" {...register("Senha", { required: true, maxLength: 100 })} />
+          </Form.Group>
+
+          <Button variant="primary" type="submit" block>
+            Avançar
+        </Button>
+
+        </form>
+      </aside>
+    </div>
   );
 }
 
