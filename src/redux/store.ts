@@ -3,8 +3,8 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 
 export default initialState => {
-  initialState =
-    JSON.parse(window.localStorage.getItem('state') || '') || initialState;
+  const storeState = window.localStorage.getItem('store')
+  initialState = storeState ? JSON.parse(storeState) : initialState;
   const middleware = [thunk];
 
   const store = createStore(
@@ -24,7 +24,7 @@ export default initialState => {
       total: state.total
     };
 
-    window.localStorage.setItem('state', JSON.stringify(persist));
+    window.localStorage.setItem('store', JSON.stringify(persist));
   });
 
   return store;
