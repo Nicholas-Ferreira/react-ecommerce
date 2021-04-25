@@ -1,0 +1,54 @@
+#page {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+}
+
+#page aside {
+  width: 402px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: #fff;
+  box-shadow: 10px 10px 19px 0px rgba(179, 179, 179, 0.75);
+  -webkit-box-shadow: 10px 10px 19px 0px rgba(179, 179, 179, 0.75);
+  -moz-box-shadow: 10px 10px 19px 0px rgba(179, 179, 179, 0.75);
+}
+
+#page .icon {
+  margin-right: 10px;
+}
+
+#page .content-wrapper main {
+  max-width: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+#page .content-wrapper main h1 {
+  font-size: 76px;
+  line-height: 70px;
+  color: #59c4ca;
+}
+
+.content-wrapper .register-app {
+  width: 250px;
+  margin-top: 40px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.content-wrapper .btn {
+  color: #fff;
+  background-color: #59c4ca;
+  border-color: #59c4ca;
+
+  &:hover {
+    background-color: #59c4ca;
+  }
+}
