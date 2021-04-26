@@ -81,7 +81,7 @@ class SingUp extends Component<{}, MyState> {
                 Cadastre-se
               </Button>
 
-              <Link to='/' className='register-app'>
+              <Link to='SingIn' className='register-app'>
                 <FiLogIn color='#4dacb1' className="icon" />
                 Já possuo cadastro
              </Link>

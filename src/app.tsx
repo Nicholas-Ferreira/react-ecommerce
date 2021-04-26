@@ -15,7 +15,7 @@ const App = () => (
     <Route path="/checkout" component={Checkout} />
     <Route path='/singin' component={SingIn} />
     <Route path='/singup' component={SingUp} />
-    <Route path='*' component={NotFound} />
+{/**    <Route path='*' component={NotFound} />  */}
   </Router>
 );
 

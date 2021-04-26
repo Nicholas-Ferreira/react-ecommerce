@@ -1,0 +1,40 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 95vw;
+  height: 9vh;
+  background-color: #9188E5 ;
+
+  .navbar-brand {
+    display: inline-block;
+    font-size: 26px;
+    line-height: 70px;
+    color: #fff;
+  }
+
+  .navbar-nav {
+  
+    .nav-link {
+      color: #fff;
+    }
+  
+    .dropdown-menu {
+      color: #fff;
+    }
+  }
+
+  .form-control{
+    display: flex;
+    flex-direction: initial;
+  }
+
+  .btn {
+    max-width: 400px;
+    height: 35px;
+    color: rgb(0, 0, 0);
+    background-color: #59C4CA;
+    border-color: #59C4CA;
+  }
+
+}
+  
