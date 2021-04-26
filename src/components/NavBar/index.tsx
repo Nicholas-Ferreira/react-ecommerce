@@ -8,7 +8,7 @@ class NavBar extends Component {
 
   render() {
     return (
-      <Navbar>
+      <Navbar fixed='top'>
         <Link to=''>
           <Navbar.Brand >My style</Navbar.Brand>
         </Link>
