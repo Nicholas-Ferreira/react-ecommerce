@@ -1,17 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { Form, Button, Col } from 'react-bootstrap'
 import InputMask from 'react-input-mask';
 import axios from 'axios';
 import { IViaCEPResponse } from '../../../interfaces/viacep.interface';
+import { FiArrowLeft } from 'react-icons/fi';
+import { Endereco } from '../../../services/endereco';
+import { ButtonLoading } from '../../../components/ButtonLoading';
 
-
-function Address(props) {
+export function AddressForm(props) {
+  const [loading, setLoading] = useState(false)
   const { register, handleSubmit, formState: { errors }, control, watch, setValue } = useForm();
-  const onSubmit = data => {
-    console.log(data);
 
-    props.nextStep()
+  const onSubmit = async (data) => {
+    const endereco = new Endereco()
+    setLoading(true)
+    const _endereco = await endereco.add({ ...data, cep: data.cep.replace('-', '') })
+    setLoading(false)
+    if (!_endereco) return
+
+    props.previousStep()
+    return props.onSubmit(_endereco, props)
   }
 
   useEffect(() => {
@@ -36,6 +45,7 @@ function Address(props) {
   return (
     <div className='checkout-form'>
       <aside className='form'>
+        <span className={'back'} onClick={props.previousStep}><FiArrowLeft /> Voltar</span>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group controlId="formGridZip" >
             <Form.Label>CEP</Form.Label>
@@ -108,12 +118,11 @@ function Address(props) {
               </Form.Control>
             </Form.Group>
           </Form.Row>
-          <Button variant="primary" type="submit" block>
-            Avançar
-        </Button>
+          <ButtonLoading label="Salvar" loading={loading} />
         </form>
       </aside>
     </div>
   );
 }
-export default Address;
+
+export default AddressForm;

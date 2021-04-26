@@ -1,15 +1,21 @@
 .checkout-page {
   padding: 15px;
-  
+
+  span.back {
+    cursor: pointer;
+    margin-right: auto;
+  }
+
   .step-container {
     width: calc(100% - 450px);
     height: 100vh;
   }
 
-  .form{
+  .form {
     display: flex;
     justify-content: center;
-    align-items: center ;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
   }
 
@@ -17,7 +23,7 @@
     width: 50%;
   }
 
-  .checkout-form{
+  .checkout-form {
     width: 100%;
     //max-width: 50%;
     height: 100%;
@@ -32,8 +38,16 @@
   .btn {
     height: 35px;
     color: #fff;
-    background-color: #9188E5;
-    border-color: #9188E5;
+    background-color: #9188e5;
+    border-color: #9188e5;
     margin-top: 10px;
+  }
+
+  .address-list {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }

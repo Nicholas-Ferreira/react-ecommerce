@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback } from 'react';
 import CForm from '../../../components/FormCrediCard';
 import Card from '../../../components/Card';
+import { FiArrowLeft } from 'react-icons/fi';
 
 const initialState = {
   cardNumber: '#### #### #### ####',
@@ -11,7 +12,7 @@ const initialState = {
   isCardFlipped: false
 };
 
-const CrediCard = () => {
+const CrediCard = (props) => {
   const [state, setState] = useState(initialState);
   const [currentFocusedElm, setCurrentFocusedElm] = useState(null);
 
@@ -55,6 +56,7 @@ const CrediCard = () => {
 
   return (
     <div className="wrapper">
+      <span className={'back'} onClick={props.previousStep}><FiArrowLeft /> Voltar</span>
       <CForm
         cardMonth={state.cardMonth}
         cardYear={state.cardYear}

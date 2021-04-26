@@ -7,7 +7,7 @@ import { updateCart } from '../../redux/total/actions';
 import { formatPrice } from '../../util';
 import { IFloatCartActionProps, IFloatCartProps, IFloatCartState } from '../../components/FloatCart/interface';
 import FloatCart from './FloatCart';
-import Address from './Steps/Address';
+import Address from './Address';
 import CrediCard from './Steps/CrediCard';
 import Credential from './Steps/Credential';
 
