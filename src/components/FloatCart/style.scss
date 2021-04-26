@@ -7,6 +7,7 @@
   background-color: #1b1a20;
   box-sizing: border-box;
 
+  z-index: 10000;
   transition: right 0.2s;
 
   &--open {
