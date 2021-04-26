@@ -37,7 +37,7 @@ function Credential(props) {
 
           <Form.Group>
             <Form.Label>Senha</Form.Label>
-            <Form.Control type="password" placeholder="Senha" {...register("senha", { required: true, maxLength: 100 })} />
+            <Form.Control type="password" placeholder="Senha" {...register("senha", { required: true, minLength: 8 })} />
           </Form.Group>
 
           <ButtonLoading label={'Avançar'} loading={loading} onlyLoader />
