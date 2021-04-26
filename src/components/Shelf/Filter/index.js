@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { updateFilters } from '../../../redux/filters/actions';
 import Checkbox from '../../Checkbox';
-import GithubStarButton from '../../github/StarButton';
 
 import './style.scss';
 
@@ -38,7 +37,6 @@ const Filter = props => {
     <div className="filters">
       <h4 className="title">Tamanho:</h4>
       {createCheckboxes()}
-      <GithubStarButton />
     </div>
   );
 };
