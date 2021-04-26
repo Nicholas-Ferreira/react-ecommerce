@@ -1,29 +1,28 @@
 .navbar {
   position: fixed;
   top: 0;
-  width: 95vw;
-  height: 9vh;
-  background-color: #9188E5 ;
+  width: calc(100vw - 60px);
+  height: 60px;
+  background-color: #9188e5;
 
   .navbar-brand {
     display: inline-block;
     font-size: 26px;
     line-height: 70px;
-    color: #fff;
+    color: #fff !important;
   }
 
   .navbar-nav {
-  
     .nav-link {
-      color: #fff;
+      color: #fff !important;
     }
-  
+
     .dropdown-menu {
-      color: #fff;
+      color: #fff !important;
     }
   }
 
-  .form-control{
+  .form-control {
     display: flex;
     flex-direction: initial;
   }
@@ -32,9 +31,7 @@
     max-width: 400px;
     height: 35px;
     color: rgb(0, 0, 0);
-    background-color: #59C4CA;
-    border-color: #59C4CA;
+    background-color: #59c4ca;
+    border-color: #59c4ca;
   }
-
 }
-  
