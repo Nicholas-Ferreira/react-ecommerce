@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Nav, Navbar, Form, FormControl, Button, NavDropdown } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
+import FloatCart from '../FloatCart/index'
 import './style.scss';
+
 
 class NavBar extends Component {
 
@@ -41,6 +43,10 @@ class NavBar extends Component {
               <Nav.Link href="#deets">Login / Inscreva-se</Nav.Link>
             </Nav>
           </Link>
+
+          <React.Fragment>
+            <FloatCart />
+          </React.Fragment>
 
         </Navbar.Collapse>
       </Navbar>
