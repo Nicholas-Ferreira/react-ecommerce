@@ -1,39 +1,58 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Spinner } from 'react-bootstrap'
+import { connect } from 'react-redux';
+import { login, logout } from '../../../redux/user/actions';
+import { ButtonLoading } from '../../../components/ButtonLoading';
 
 function Credential(props) {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => {
-    console.log(data);
+  const [loading, setLoading] = useState(true)
+  const { register, handleSubmit, formState: { errors }, setValue } = useForm();
+  useEffect(() => { setValue('email', props.userEmail) }, [props.userEmail])
+  useEffect(() => {
+    if (props.userToken && props.currentStep == 1) props.goToStep(2)
+    else setLoading(false)
+  }, [props.userToken])
 
-    props.nextStep()
+  console.log(props)
+  const onSubmitLogin = async ({ email, senha }) => {
+    if (loading || !email || !senha) return null
+
+    setLoading(true)
+    const status = await props.login(email, senha)
+    setLoading(false)
+    if (!status) return null
+    return null
   }
-  console.log(errors);
 
   return (
     <div className='checkout-form'>
       <aside className='form'>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmitLogin)}>
 
           <Form.Group>
             <Form.Label>Email </Form.Label>
-            <Form.Control type="email" placeholder="Email" {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} />
+            <Form.Control type="email" placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
           </Form.Group>
 
           <Form.Group>
             <Form.Label>Senha</Form.Label>
-            <Form.Control type="password" placeholder="Senha" {...register("Senha", { required: true, maxLength: 100 })} />
+            <Form.Control type="password" placeholder="Senha" {...register("senha", { required: true, maxLength: 100 })} />
           </Form.Group>
 
-          <Button variant="primary" type="submit" block>
-            Avançar
-        </Button>
-
+          <ButtonLoading label={'Avançar'} loading={loading} onlyLoader />
         </form>
       </aside>
-    </div>
+    </div >
   );
 }
 
-export default Credential;
+const mapStateToProps = (state) => ({
+  userEmail: state.user.email,
+  userToken: state.user.token
+});
+
+export default connect(
+  mapStateToProps,
+  { login, logout }
+)(Credential);
