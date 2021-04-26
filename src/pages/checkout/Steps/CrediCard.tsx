@@ -2,6 +2,7 @@ import React, { useState, useRef, useCallback } from 'react';
 import CForm from '../../../components/FormCrediCard';
 import Card from '../../../components/Card';
 import { FiArrowLeft } from 'react-icons/fi';
+import { ButtonLoading } from '../../../components/ButtonLoading';
 
 const initialState = {
   cardNumber: '#### #### #### ####',
@@ -13,6 +14,7 @@ const initialState = {
 };
 
 const CrediCard = (props) => {
+  const [loading, setLoading] = useState(false);
   const [state, setState] = useState(initialState);
   const [currentFocusedElm, setCurrentFocusedElm] = useState(null);
 
@@ -67,6 +69,8 @@ const CrediCard = (props) => {
         cardCvv={formFieldsRefObj.cardCvv}
         onCardInputFocus={onCardFormInputFocus}
         onCardInputBlur={onCardInputBlur}
+        loading={loading}
+        onSubmit={() => { }}
       >
         <Card
           cardNumber={state.cardNumber}

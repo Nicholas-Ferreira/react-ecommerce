@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { ButtonLoading } from '../ButtonLoading';
 
 import './style.scss'
 
@@ -19,7 +20,9 @@ export default function CForm({
   onCardInputFocus,
   onCardInputBlur,
   cardCvv,
-  children
+  children,
+  loading,
+  onSubmit
 }) {
   const [cardNumber, setCardNumber] = useState('');
 
@@ -90,8 +93,8 @@ export default function CForm({
       <div className="card-form__inner">
         <div className="card-input">
           <label htmlFor="cardNumber" className="card-input__label">
-            Card Number
-                    </label>
+            Número do Cartão
+          </label>
           <input
             type="tel"
             name="cardNumber"
@@ -108,7 +111,7 @@ export default function CForm({
 
         <div className="card-input">
           <label htmlFor="cardName" className="card-input__label">
-            Card Holder
+            Titular do cartão
                     </label>
           <input
             type="text"
@@ -129,7 +132,7 @@ export default function CForm({
                 htmlFor="cardMonth"
                 className="card-input__label"
               >
-                Expiration Date
+                Data de Validade
                             </label>
               <select
                 className="card-input__input -select"
@@ -141,7 +144,7 @@ export default function CForm({
                 onBlur={onCardInputBlur}
               >
                 <option value="" disabled>
-                  Month
+                  Mês
                                 </option>
 
                 {monthsArr.map((val, index) => (
@@ -159,7 +162,7 @@ export default function CForm({
                 onBlur={onCardInputBlur}
               >
                 <option value="" disabled>
-                  Year
+                  Ano
                                 </option>
 
                 {yearsArr.map((val, index) => (
@@ -192,6 +195,7 @@ export default function CForm({
             </div>
           </div>
         </div>
+        <ButtonLoading label={'Salvar'} loading={loading} onClick={onSubmit} />
       </div>
     </div>
   );
