@@ -15,7 +15,7 @@ import './style.scss';
 import Success from './Steps/Success';
 
 function Nav({ currentStep }: any) {
-  return <Stepper steps={[{ title: 'Login' }, { title: 'Endereço' }, { title: 'Cartão' }, { title: 'Sucesso!' }]} activeStep={currentStep - 1} />
+  return <Stepper steps={[{ title: 'Login' }, { title: 'Endereço' }, { title: 'Cartão' }, { title: 'Confirmar' }]} activeStep={currentStep - 1} />
 }
 class Checkout extends Component<IFloatCartProps & IFloatCartActionProps> {
   proceedToCheckout = () => {
