@@ -310,7 +310,8 @@
   &__dateTitle {
     opacity: 0.7;
     font-size: 13px;
-    padding-bottom: 6px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
     width: 100%;
 
     @media screen and (max-width: 480px) {

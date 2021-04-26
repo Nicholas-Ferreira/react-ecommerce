@@ -77,14 +77,8 @@ class FloatCart extends Component<IFloatCartProps & IFloatCartActionProps> {
 
     console.log(cartProducts)
     if (!productQuantity) {
-      alert('Add some product in the cart!');
+      alert('Adicione algum produto no carrinho!');
     } else {
-      alert(
-        `Checkout - Subtotal: ${currencyFormat} ${formatPrice(
-          totalPrice,
-          currencyId
-        )}`
-      );
       history.push('/checkout')
     }
   };
@@ -143,7 +137,7 @@ class FloatCart extends Component<IFloatCartProps & IFloatCartActionProps> {
             <span className="bag">
               <span className="bag__quantity">{cartTotal.productQuantity}</span>
             </span>
-            <span className="header-title">Cart</span>
+            <span className="header-title">Carrinho</span>
           </div>
 
           <div className="float-cart__shelf-container">
@@ -168,11 +162,11 @@ class FloatCart extends Component<IFloatCartProps & IFloatCartActionProps> {
               <small className="sub-price__installment">
                 {!!cartTotal.installments && (
                   <span>
-                    {`OR UP TO ${cartTotal.installments} x ${cartTotal.currencyFormat
+                    {/*`OR UP TO ${cartTotal.installments} x ${cartTotal.currencyFormat
                       } ${formatPrice(
                         cartTotal.totalPrice / cartTotal.installments,
                         cartTotal.currencyId
-                      )}`}
+                      )}`*/}
                   </span>
                 )}
               </small>

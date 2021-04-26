@@ -14,7 +14,6 @@ function Credential(props) {
     else setLoading(false)
   }, [props.userToken])
 
-  console.log(props)
   const onSubmitLogin = async ({ email, senha }) => {
     if (loading || !email || !senha) return null
 

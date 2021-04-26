@@ -17,7 +17,6 @@ export const ecommerce = () => {
         if (state) {
           state.user.token = ''
           window.localStorage.setItem('store', JSON.stringify(state));
-          history.replace('/')
         }
         return false
       }

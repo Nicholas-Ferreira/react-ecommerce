@@ -68,7 +68,7 @@ class CartProduct extends Component {
           <p className="title">{product.title}</p>
           <p className="desc">
             {`${product.availableSizes[0]} | ${product.style}`} <br />
-            Quantity: {product.quantity}
+            Quantidade: {product.quantity}
           </p>
         </div>
         <div className="shelf-item__price">

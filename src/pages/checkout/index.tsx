@@ -8,27 +8,47 @@ import { formatPrice } from '../../util';
 import { IFloatCartActionProps, IFloatCartProps, IFloatCartState } from '../../components/FloatCart/interface';
 import FloatCart from './FloatCart';
 import Address from './Address';
-import CrediCard from './Steps/CrediCard';
-import Credential from './Steps/Credential';
+import CrediCard from './CrediCard';
+import Credential from './Credential';
+import Confirm from './Confirm';
 
 import './style.scss';
-import Success from './Steps/Success';
+import { Pagamento } from '../../services/pagamento';
+import { toast } from 'react-toastify';
 
 function Nav({ currentStep }: any) {
   return <Stepper steps={[{ title: 'Login' }, { title: 'Endereço' }, { title: 'Cartão' }, { title: 'Confirmar' }]} activeStep={currentStep - 1} />
 }
 class Checkout extends Component<IFloatCartProps & IFloatCartActionProps> {
+  state = { address: 0, card: 0, loading: false }
+
   proceedToCheckout = () => {
     const { totalPrice, productQuantity, currencyFormat, currencyId } = this.props.cartTotal;
     const { cartProducts } = this.props
-
     console.log(cartProducts)
-    if (!productQuantity) {
-      alert('Add some product in the cart!');
-    } else {
-      alert(`Checkout - Subtotal: ${currencyFormat} ${formatPrice(totalPrice, currencyId)}`);
-    }
   };
+
+  onSelectAddress = (id) => {
+    console.log('onSelectAddress', id)
+    this.setState({ address: id })
+  }
+
+  onSubmit = async () => {
+    const { cartProducts } = this.props
+    const pagamento = new Pagamento()
+
+    this.setState({ loading: true })
+    const pedido = await pagamento.pagar({
+      idCartao: this.state.card,
+      idEndereco: this.state.address,
+      parcelado: 1,
+      itens: cartProducts.map(p => ({ produtoId: p.id, quantidade: p.quantity }))
+    })
+    this.setState({ loading: false })
+
+    if (pedido == false) return
+    toast.success('Pedido Realizado com Sucesso!')
+  }
 
   render() {
     return (
@@ -36,9 +56,9 @@ class Checkout extends Component<IFloatCartProps & IFloatCartActionProps> {
         <div className="step-container">
           <StepWizard nav={<Nav />}>
             <Credential />
-            <Address />
-            <CrediCard />
-            <Success />
+            <Address onSelectAddress={this.onSelectAddress} />
+            <CrediCard onSelectCardiCard={(id) => this.setState({ card: id })} />
+            <Confirm onSubmit={this.onSubmit} loading={this.state.loading} />
           </StepWizard>
         </div>
         <FloatCart />

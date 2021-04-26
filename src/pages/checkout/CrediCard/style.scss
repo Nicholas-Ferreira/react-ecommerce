@@ -1,0 +1,20 @@
+.cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 35px;
+
+  & > div {
+    cursor: pointer;
+    margin: 15px;
+    width: 450px;
+  }
+
+  .append-card {
+    border: dotted #ccc;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}

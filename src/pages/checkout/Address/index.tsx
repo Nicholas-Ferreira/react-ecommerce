@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import StepWizard from 'react-step-wizard';
 import { IAddress } from '../../../interfaces/api.interface';
+import { logout } from '../../../redux/user/actions';
 import { Endereco } from '../../../services/endereco';
 import AddressForm from './AddressForm';
 import { AddressList } from './AddressList'
@@ -14,11 +15,12 @@ function Address(props) {
   const searchAddress = async () => {
     const _address = await useAddress.findAll()
     if (_address) setAddress(_address)
+    else logout()
   }
 
   const onSelectAddress = (id: number) => {
-    console.log(id)
     props.nextStep()
+    if (props.onSelectAddress) props.onSelectAddress(id)
   }
 
   const onSubmit = () => {

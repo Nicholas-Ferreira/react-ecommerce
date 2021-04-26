@@ -14,3 +14,22 @@ export interface IAddress {
   estado: string;
   cidade: string;
 }
+
+export interface ICradiCard {
+  id?: number;
+  titular: string,
+  numero: string,
+  data_vencimento: Date,
+  criado_em: Date,
+  cancelado_em: Date | null
+}
+
+export interface IOrder {
+  idCartao: number,
+  idEndereco: number,
+  parcelado: number,
+  itens: Array<{
+    produtoId: number,
+    quantidade: number
+  }>
+}

@@ -1,8 +1,11 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import CForm from '../../../components/FormCrediCard';
 import Card from '../../../components/Card';
 import { FiArrowLeft } from 'react-icons/fi';
 import { ButtonLoading } from '../../../components/ButtonLoading';
+import { ICradiCard } from '../../../interfaces/api.interface';
+import { Cartao } from '../../../services/cartao';
+import { logout } from '../../../redux/user/actions';
 
 const initialState = {
   cardNumber: '#### #### #### ####',
@@ -13,10 +16,25 @@ const initialState = {
   isCardFlipped: false
 };
 
-const CrediCard = (props) => {
+const CrediCardForm = (props) => {
   const [loading, setLoading] = useState(false);
   const [state, setState] = useState(initialState);
   const [currentFocusedElm, setCurrentFocusedElm] = useState(null);
+
+  const onSubmit = async (data) => {
+    const useCards = new Cartao()
+    setLoading(true)
+    const _cardicard = await useCards.add({
+      card_holder_name: state.cardHolder,
+      card_number: state.cardNumber,
+      card_cvv: state.cardCvv,
+      card_expiration_date: `${state.cardYear}-${state.cardMonth}`
+    })
+    setLoading(false)
+    if (_cardicard == false) return
+    props.previousStep()
+    return props.onSubmit(_cardicard, props)
+  }
 
   const updateStateValues = useCallback(
     (keyName, value) => {
@@ -70,7 +88,7 @@ const CrediCard = (props) => {
         onCardInputFocus={onCardFormInputFocus}
         onCardInputBlur={onCardInputBlur}
         loading={loading}
-        onSubmit={() => { }}
+        onSubmit={onSubmit}
       >
         <Card
           cardNumber={state.cardNumber}
@@ -90,4 +108,4 @@ const CrediCard = (props) => {
   );
 };
 
-export default CrediCard;
+export default CrediCardForm;
