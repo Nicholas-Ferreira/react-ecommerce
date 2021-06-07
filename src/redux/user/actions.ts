@@ -3,8 +3,14 @@ import { toast } from 'react-toastify';
 import { BASE_URL } from '../../services/api';
 import { LOGIN_USER, LOGOUT_USER } from './actionTypes';
 
-export const login = (email: string, senha: string) => async dispatch => {
-  const { status, data } = await axios.post(`${BASE_URL}/auth/signin`, { email, senha }, { validateStatus: () => true })
+export const login = (email: string, senha: string, token: string) => async dispatch => {
+  const { status, data } = await axios.post(`${BASE_URL}/auth/signin`,
+    { email, senha },
+    {
+      validateStatus: () => true,
+      headers: { recaptcha: token }
+    }
+  )
   if (status !== 200) {
     console.error(data)
     if (typeof data.message == 'string') toast.error(data.message)

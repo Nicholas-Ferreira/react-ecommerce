@@ -22,7 +22,7 @@ function Credential(props) {
     console.log(recaptchaValue)
 
     setLoading(true)
-    const status = await props.login(email, senha)
+    const status = await props.login(email, senha, recaptchaValue)
     setLoading(false)
     if (!status) return null
     return null
