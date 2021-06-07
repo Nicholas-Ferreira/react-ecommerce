@@ -80,7 +80,7 @@ class FloatCart extends Component<IFloatCartProps & IFloatCartActionProps> {
             {products}
             {!products.length && (
               <p className="shelf-empty">
-                Add some products in the cart <br />
+                Adicione produtos no carrinho <br />
                 :)
               </p>
             )}
